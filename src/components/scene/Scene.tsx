@@ -1,3 +1,5 @@
+import {SceneBox} from './styled-scene'
+
 //Interface for each scene prop
 interface SceneProps {
     text: string
@@ -5,6 +7,6 @@ interface SceneProps {
 
 export default function Scene (props: SceneProps) {
     return (
-        <p>{props.text}</p>
+        <SceneBox><p>{props.text}</p></SceneBox>
     )
 }
