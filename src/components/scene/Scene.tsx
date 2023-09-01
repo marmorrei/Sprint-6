@@ -1,5 +1,10 @@
-export default function Scene (){
+//Interface for each scene prop
+interface SceneProps {
+    text: string
+};
+
+export default function Scene (props: SceneProps) {
     return (
-        <p>El nostre heroi estava surant per l'espai sideral quan a la llunyania va albirar una nau espacial</p>
+        <p>{props.text}</p>
     )
 }
