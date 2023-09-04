@@ -8,7 +8,7 @@ interface SceneProps {
   highlightedLine: number;
 }
 
-export default function Scene(props: SceneProps) {
+export default function Scene(props: SceneProps): React.JSX.Element {
   return props.index === props.highlightedLine ? (
     <SceneBoxHighlighted>
       <p>{props.text}</p>

@@ -1,10 +1,9 @@
 import React from "react";
 import Scene from "./components/scene/Scene";
-//import WelcomeScreen from "./components/welcome-screen/WelcomeScreen";
 import "./App.css";
 import data from "./data";
 
-export default function App() {
+export default function App(): React.JSX.Element {
   const [isShownWelcome, setIsShownWelcome] = React.useState(true);
   const [highlightedLine, setHighlightedLine] = React.useState(0);
 
@@ -22,11 +21,21 @@ export default function App() {
       setHighlightedLine((prevHighlightedLine) => prevHighlightedLine + 1);
   }
 
-  const scenes: JSX.Element[] = data.map((item) => {
+  React.useEffect(() => {
+    !isShownWelcome
+      ? (document.body.style.backgroundImage = `url(${data[highlightedLine].img})`)
+      : (document.body.style.backgroundImage = "");
+
+    return () => {
+      document.body.style.backgroundImage = "";
+    };
+  }, [highlightedLine, isShownWelcome]);
+
+  const scenes: React.JSX.Element[] = data.map((item) => {
     return (
       <Scene
-        key={item}
-        text={item}
+        key={item.txt}
+        text={item.txt}
         index={data.indexOf(item)}
         highlightedLine={highlightedLine}
       />

@@ -6,6 +6,7 @@ export const SceneBox = styled.div`
   margin: 10px;
   padding: 5px;
   text-align: center;
+  background-color: #ffffff9b;
 
   p {
     margin: 0;
