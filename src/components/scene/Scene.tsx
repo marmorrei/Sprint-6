@@ -1,12 +1,21 @@
-import {SceneBox} from './styled-scene'
+import { SceneBox, SceneBoxHighlighted } from "./styled-scene";
 
 //Interface for each scene prop
 interface SceneProps {
-    text: string
-};
+  key: string;
+  text: string;
+  index: number;
+  highlightedLine: number;
+}
 
-export default function Scene (props: SceneProps) {
-    return (
-        <SceneBox><p>{props.text}</p></SceneBox>
-    )
+export default function Scene(props: SceneProps) {
+  return props.index === props.highlightedLine ? (
+    <SceneBoxHighlighted>
+      <p>{props.text}</p>
+    </SceneBoxHighlighted>
+  ) : (
+    <SceneBox>
+      <p>{props.text}</p>
+    </SceneBox>
+  );
 }
